@@ -12,33 +12,35 @@
       "mode": "100644",
       "type": "blob"
     },
-    "pixie.cson": {
-      "path": "pixie.cson",
-      "content": "version: \"0.1.0-pre.0\"\ndependencies:\n  postmaster: \"distri/postmaster:v0.5.0\"\n",
-      "mode": "100644"
-    },
     "main.coffee": {
       "path": "main.coffee",
-      "content": "Postmaster = require \"postmaster\"\n\nmodule.exports = (url, handlers, options={}) ->\n  {name, width, height} = options\n  width ?= 800\n  height ?= 600\n\n  childWindow = window.open url, name, \"width=#{width},height=#{height}\"\n\n  postmaster = Postmaster(handlers)\n  postmaster.remoteTarget = -> childWindow\n\n  # Return a proxy for easy Postmastering\n  proxy = new Proxy postmaster,\n    get: (target, property, receiver) ->\n      (args...) ->\n        target.invokeRemote property, args...\n\n  return proxy\n\ndocument.onclick = ->\n  module.exports(\"https://danielx.net/pixel-editor/\")\n",
-      "mode": "100644"
+      "content": "Postmaster = require \"postmaster\"\n\nmodule.exports = (url, handlers, options={}) ->\n  {name, width, height} = options\n  width ?= 800\n  height ?= 600\n\n  childWindow = window.open url, name, \"width=#{width},height=#{height}\"\n\n  postmaster = Postmaster(handlers)\n  postmaster.remoteTarget = -> childWindow\n\n  # Return a proxy for easy Postmastering\n  proxy = new Proxy postmaster,\n    get: (target, property, receiver) ->\n      (args...) ->\n        target.invokeRemote property, args...\n\n  return proxy\n",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "pixie.cson": {
+      "path": "pixie.cson",
+      "content": "version: \"0.1.0\"\ndependencies:\n  postmaster: \"distri/postmaster:v0.5.0\"\n",
+      "mode": "100644",
+      "type": "blob"
     }
   },
   "distribution": {
-    "pixie": {
-      "path": "pixie",
-      "content": "module.exports = {\"version\":\"0.1.0-pre.0\",\"dependencies\":{\"postmaster\":\"distri/postmaster:v0.5.0\"}};",
-      "type": "blob"
-    },
     "main": {
       "path": "main",
-      "content": "(function() {\n  var Postmaster,\n    __slice = [].slice;\n\n  Postmaster = require(\"postmaster\");\n\n  module.exports = function(url, handlers, options) {\n    var childWindow, height, name, postmaster, proxy, width;\n    if (options == null) {\n      options = {};\n    }\n    name = options.name, width = options.width, height = options.height;\n    if (width == null) {\n      width = 800;\n    }\n    if (height == null) {\n      height = 600;\n    }\n    childWindow = window.open(url, name, \"width=\" + width + \",height=\" + height);\n    postmaster = Postmaster(handlers);\n    postmaster.remoteTarget = function() {\n      return childWindow;\n    };\n    proxy = new Proxy(postmaster, {\n      get: function(target, property, receiver) {\n        return function() {\n          var args;\n          args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n          return target.invokeRemote.apply(target, [property].concat(__slice.call(args)));\n        };\n      }\n    });\n    return proxy;\n  };\n\n  document.onclick = function() {\n    return module.exports(\"https://danielx.net/pixel-editor/\");\n  };\n\n}).call(this);\n",
+      "content": "(function() {\n  var Postmaster,\n    __slice = [].slice;\n\n  Postmaster = require(\"postmaster\");\n\n  module.exports = function(url, handlers, options) {\n    var childWindow, height, name, postmaster, proxy, width;\n    if (options == null) {\n      options = {};\n    }\n    name = options.name, width = options.width, height = options.height;\n    if (width == null) {\n      width = 800;\n    }\n    if (height == null) {\n      height = 600;\n    }\n    childWindow = window.open(url, name, \"width=\" + width + \",height=\" + height);\n    postmaster = Postmaster(handlers);\n    postmaster.remoteTarget = function() {\n      return childWindow;\n    };\n    proxy = new Proxy(postmaster, {\n      get: function(target, property, receiver) {\n        return function() {\n          var args;\n          args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n          return target.invokeRemote.apply(target, [property].concat(__slice.call(args)));\n        };\n      }\n    });\n    return proxy;\n  };\n\n}).call(this);\n",
+      "type": "blob"
+    },
+    "pixie": {
+      "path": "pixie",
+      "content": "module.exports = {\"version\":\"0.1.0\",\"dependencies\":{\"postmaster\":\"distri/postmaster:v0.5.0\"}};",
       "type": "blob"
     }
   },
   "progenitor": {
     "url": "https://danielx.net/editor/"
   },
-  "version": "0.1.0-pre.0",
+  "version": "0.1.0",
   "entryPoint": "main",
   "repository": {
     "branch": "master",
