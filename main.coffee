@@ -17,6 +17,3 @@ module.exports = (url, handlers, options={}) ->
         target.invokeRemote property, args...
 
   return proxy
-
-document.onclick = ->
-  module.exports("https://danielx.net/pixel-editor/")
