@@ -199,7 +199,7 @@
     },
     "pixie.cson": {
       "path": "pixie.cson",
-      "content": "version: \"0.1.0\"\ndependencies:\n  postmaster: \"distri/postmaster:v0.5.0\"\n",
+      "content": "version: \"0.1.0-pre.0\"\ndependencies:\n  postmaster: \"distri/postmaster:v0.5.0\"\n",
       "mode": "100644"
     },
     "main.coffee": {
@@ -211,7 +211,7 @@
   "distribution": {
     "pixie": {
       "path": "pixie",
-      "content": "module.exports = {\"version\":\"0.1.0\",\"dependencies\":{\"postmaster\":\"distri/postmaster:v0.5.0\"}};",
+      "content": "module.exports = {\"version\":\"0.1.0-pre.0\",\"dependencies\":{\"postmaster\":\"distri/postmaster:v0.5.0\"}};",
       "type": "blob"
     },
     "main": {
@@ -223,7 +223,7 @@
   "progenitor": {
     "url": "https://danielx.net/editor/"
   },
-  "version": "0.1.0",
+  "version": "0.1.0-pre.0",
   "entryPoint": "main",
   "repository": {
     "branch": "master",
