@@ -13,6 +13,7 @@ module.exports = (url, handlers, options={}) ->
   # Return a proxy for easy Postmastering
   proxy = new Proxy postmaster,
     get: (target, property, receiver) ->
+      target[property] or
       (args...) ->
         target.invokeRemote property, args...
 
